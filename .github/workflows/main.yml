@@ -35,10 +35,14 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit and push preprocessed CSV
+      - name: Commit and push preprocessed CSV if changed
         run: |
           git add preprocessing/salesdata_preprocessing/preprocessed_data.csv
-          git commit -m "Auto-update: preprocessed data CSV"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-update: preprocessed data CSV"
+            git push
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
