@@ -32,9 +32,9 @@ def automate_preprocessing(customer_csv_path, transactions_csv_path, prod_cat_in
     full_df.to_csv(output_csv_path, index=False)
 
 if __name__ == '__main__':
-    customer_csv = '../salesdata_raw/Customer.csv'
-    transactions_csv = '../salesdata_raw/Transactions.csv'
-    prod_cat_info_csv = '../salesdata_raw/prod_cat_info.csv'
+    customer_csv = 'https://raw.githubusercontent.com/mathyanics/Eksperimen_SML_YahyaPutraPradana/refs/heads/main/salesdata_raw/Customer.csv'
+    transactions_csv = 'https://raw.githubusercontent.com/mathyanics/Eksperimen_SML_YahyaPutraPradana/refs/heads/main/salesdata_raw/Transactions.csv'
+    prod_cat_info_csv = '.https://raw.githubusercontent.com/mathyanics/Eksperimen_SML_YahyaPutraPradana/refs/heads/main/salesdata_raw/prod_cat_info.csv'
     output_preprocessed_csv = 'salesdata_preprocessing/preprocessed_data.csv'
 
     automate_preprocessing(customer_csv, transactions_csv, prod_cat_info_csv, output_preprocessed_csv)
